@@ -1,0 +1,16 @@
+# **************************************
+# * Parameters for metprofile pipeline *
+# **************************************
+
+# List of files
+list_files: "/home/aschick/projects/arrieta/list_files_test.txt"
+
+# Path to sequences
+path: "/home/aschick/projects/arrieta/metqc/data/bmtagger/"
+
+# Path suffix for forward reads
+for: "_bmtagged_1.fastq"
+# Path suffic for reverse reads
+rev: "_bmtagged_2.fastq"
+
+# Parameters for humann2 
