@@ -29,7 +29,7 @@ rule humann2:
         genefam = "output/{sample}_genefamilies.tsv",
         pathcov = "output/{sample}_pathcoverage.tsv",
         pathabun = "output/{sample}_pathabundance.tsv"
-    conda: "metannotate_files/envs/humann2_env.yaml"
+    conda: "utils/envs/humann2_env.yaml"
     shell:
             """
             cat {input.r1} {input.r2} > data/merged/{output.m}
@@ -43,7 +43,7 @@ rule normalize:
     output:
         genefam = "output/{sample}_genefamilies_norm.tsv",
         pathabun = "output/{sample}_pathabundance_norm.tsv"
-    conda: "metannotate_files/envs/humann2_env.yaml"
+    conda: "utils/envs/humann2_env.yaml"
     shell:
             """
             humann2_renorm_table --input {input.genefam} --output {output.genefam} --units relab
@@ -59,7 +59,7 @@ rule merge:
         genefam = "results/humann2_genefamilies.tsv",
         pathcov = "results/humann2_pathcoverage.tsv",
         pathabun = "results/humann2_pathabundance.tsv"
-    conda: "metannotate_files/envs/humann2_env.yaml"
+    conda: "utils/envs/humann2_env.yaml"
     shell:
             """
             humann2_join_tables --input output/ --output {output.genefam} --filename genefamilies_norm

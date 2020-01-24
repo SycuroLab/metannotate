@@ -1,5 +1,5 @@
 # **************************************
-# * Parameters for metprofile pipeline *
+# * Parameters for metannotate pipeline *
 # **************************************
 
 # List of files
@@ -13,4 +13,4 @@ for: "_bmtagged_1.fastq"
 # Path suffic for reverse reads
 rev: "_bmtagged_2.fastq"
 
-# Parameters for humann2 
+# Parameters for humann2
