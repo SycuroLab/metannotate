@@ -55,10 +55,12 @@ All the parameters required to run this pipeline are specified in a config file,
 Specify the full path to the directory that contains your data files in the config file. You also need to have a list of sample names which contains the names of the samples to run the pipeline on, one sample per line. You can run this pipeline on any number or subset of your samples. Sample names should include everything up to the R1/R2 (or 1/2) part of the file names of the raw fastq files. Specify the path and name of your list in the config file.
 
 ## Description of parameters
-| Parameter | Description |
-| -------------- | --------------- |
-| list_files | Full path and name of your sample list. |
-| path | Location of input files. |
+| Parameter | Description | Example |
+| -------------- | --------------- | ------------ |
+| list_files | Full path and name of your sample list. | `"/home/aschick/project/list_files.txt"`
+| path | Location of input files. | `"/home/aschick/project/data/filtered/"`
+| for | Suffix of forward reads. | `"_filtered_1.fastq"` |
+| rev | Suffix of reverse reads. | `"_filtered_2.fastq"` |
 
 ## Running the pipeline on Synergy
 
