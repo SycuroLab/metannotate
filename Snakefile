@@ -16,24 +16,24 @@ SAMPLES = SAMPLES[0].tolist()
 
 rule all:
     input:
-        "output/humann2_genefamilies.tsv",
-        "output/humann2_pathabundance.tsv",
-        "output/humann2_pathcoverage.tsv"
+        "results/humann2_genefamilies.tsv",
+        "results/humann2_pathabundance.tsv",
+        "results/humann2_pathcoverage.tsv"
 
 rule humann2:
     input:
         r1 = config["path"]+"{sample}"+config["for"],
         r2 = config["path"]+"{sample}"+config["rev"]
     output:
-        m = "data/merged/output/{sample}_merged.fastq",
+        m = "data/merged/{sample}_merged.fastq",
         genefam = "output/{sample}_merged_genefamilies.tsv",
         pathcov = "output/{sample}_merged_pathcoverage.tsv",
         pathabun = "output/{sample}_merged_pathabundance.tsv"
     conda: "utils/envs/humann2_env.yaml"
     shell:
             """
-            cat {input.r1} {input.r2} > data/merged/{output.m}
-            humann2 --input {output.m} --output output --threads 16/
+            cat {input.r1} {input.r2} > {output.m}
+            humann2 --input {output.m} --output output --threads 16
             """
 
 rule normalize:
@@ -47,7 +47,7 @@ rule normalize:
     shell:
             """
             humann2_renorm_table --input {input.genefam} --output {output.genefam} --units relab
-            humann2_renorm_table --input {input.pathabun} --output {output.pathabund} --units relab
+            humann2_renorm_table --input {input.pathabun} --output {output.pathabun} --units relab
             """
 
 rule merge:
