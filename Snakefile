@@ -33,7 +33,7 @@ rule humann2:
     shell:
             """
             cat {input.r1} {input.r2} > {output.m}
-            humann2 --input {output.m} --output output --threads 16
+            humann2 --input {output.m} --output output --nucleotide-database /home/aschick/refs/humann2/chocophlan --protein-database /home/aschick/refs/humann2/uniref
             """
 
 rule normalize:
