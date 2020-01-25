@@ -29,11 +29,14 @@ rule humann2:
         genefam = "output/{sample}_merged_genefamilies.tsv",
         pathcov = "output/{sample}_merged_pathcoverage.tsv",
         pathabun = "output/{sample}_merged_pathabundance.tsv"
+    params:
+        db = "output/databases/{sample}_database"
     conda: "utils/envs/humann2_env.yaml"
     shell:
             """
             cat {input.r1} {input.r2} > {output.m}
-            humann2 --input {output.m} --output output --threads 16 --nucleotide-database /home/aschick/refs/humann2/chocophlan --protein-database /home/aschick/refs/humann2/uniref --metaphlan-options="--bowtie2db /home/aschick/miniconda3/envs/humann2/bin/databases"
+            humann2 --input {output.m} --output output --threads 16 --nucleotide-database /home/aschick/refs/humann2/chocophlan --protein-database /home/aschick/refs/humann2/uniref --metaphlan-options="--bowtie2db {params.db}"
+            rm -rf {params.db}
             """
 
 rule normalize:
