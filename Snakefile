@@ -26,20 +26,20 @@ rule humann2:
         r2 = config["path"]+"{sample}"+config["rev"]
     output:
         m = "data/merged/output/{sample}_merged.fastq",
-        genefam = "output/{sample}_genefamilies.tsv",
-        pathcov = "output/{sample}_pathcoverage.tsv",
-        pathabun = "output/{sample}_pathabundance.tsv"
+        genefam = "output/{sample}_merged_genefamilies.tsv",
+        pathcov = "output/{sample}_merged_pathcoverage.tsv",
+        pathabun = "output/{sample}_merged_pathabundance.tsv"
     conda: "utils/envs/humann2_env.yaml"
     shell:
             """
             cat {input.r1} {input.r2} > data/merged/{output.m}
-            humann2 --input {output.m} --output output/
+            humann2 --input {output.m} --output output --threads 16/
             """
 
 rule normalize:
     input:
-        genefam = "output/{sample}_genefamilies.tsv",
-        pathabun = "output/{sample}_pathabundance.tsv"
+        genefam = "output/{sample}_merged_genefamilies.tsv",
+        pathabun = "output/{sample}_merged_pathabundance.tsv"
     output:
         genefam = "output/{sample}_genefamilies_norm.tsv",
         pathabun = "output/{sample}_pathabundance_norm.tsv"
@@ -53,7 +53,7 @@ rule normalize:
 rule merge:
     input:
         genefam = expand("output/{sample}_genefamilies_norm.tsv", sample=SAMPLES),
-        pathcov = expand("output/{sample}_pathcoverage.tsv", sample=SAMPLES),
+        pathcov = expand("output/{sample}_merged_pathcoverage.tsv", sample=SAMPLES),
         pathabun = expand("output/{sample}_pathabundance_norm.tsv", sample=SAMPLES)
     output:
         genefam = "results/humann2_genefamilies.tsv",
