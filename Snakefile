@@ -62,7 +62,7 @@ rule merge:
     conda: "utils/envs/humann2_env.yaml"
     shell:
             """
-            humann2_join_tables --input output/ --output {output.genefam} --filename genefamilies_norm
-            humann2_join_tables --input output/ --output {output.pathcov} --filename pathcoverage
-            humann2_join_tables --input output/ --output {output.pathabun} --filename pathabundance_norm
+            humann2_join_tables --input output/ --output {output.genefam} --file_name genefamilies_norm
+            humann2_join_tables --input output/ --output {output.pathcov} --file_name pathcoverage
+            humann2_join_tables --input output/ --output {output.pathabun} --file_name pathabundance_norm
             """
