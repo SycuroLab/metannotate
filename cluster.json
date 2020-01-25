@@ -10,7 +10,7 @@
     "error" : "logs/{rule}.{wildcards}.err"
   },
 
-  "metaphlan2" :
+  "humann2" :
   {
     "resources" : "\"rusage[mem=5000] span[hosts=1]\"",
     "time" : "00:30",
