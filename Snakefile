@@ -30,13 +30,14 @@ rule humann2:
         pathcov = "output/{sample}_merged_pathcoverage.tsv",
         pathabun = "output/{sample}_merged_pathabundance.tsv"
     params:
-        db = "output/databases/{sample}_database"
+        db1 = "--bowtie2db output/databases/{sample}_database",
+        db2 = "output/database/{sample}_database"
     conda: "utils/envs/humann2_env.yaml"
     shell:
             """
             cat {input.r1} {input.r2} > {output.m}
-            humann2 --input {output.m} --output output --threads 16 --nucleotide-database /home/aschick/refs/humann2/chocophlan --protein-database /home/aschick/refs/humann2/uniref --metaphlan-options="--bowtie2db {params.db}"
-            rm -rf {params.db}
+            humann2 --input {output.m} --output output --nucleotide-database /home/aschick/refs/humann2/chocophlan --protein-database /home/aschick/refs/humann2/uniref --metaphlan-options="{params.db1}"
+            rm -rf {params.db2}
             """
 
 rule normalize:
@@ -48,10 +49,7 @@ rule normalize:
         pathabun = "output/{sample}_pathabundance_norm.tsv"
     conda: "utils/envs/humann2_env.yaml"
     shell:
-            """
-            humann2_renorm_table --input {input.genefam} --output {output.genefam} --units relab
-            humann2_renorm_table --input {input.pathabun} --output {output.pathabun} --units relab
-            """
+            "humann2_renorm_table --input {input.genefam} --output {output.genefam} --units relab; humann2_renorm_table --input {input.pathabun} --output {output.pathabun} --units relab"
 
 rule merge:
     input:
@@ -64,8 +62,4 @@ rule merge:
         pathabun = "results/humann2_pathabundance.tsv"
     conda: "utils/envs/humann2_env.yaml"
     shell:
-            """
-            humann2_join_tables --input output/ --output {output.genefam} --file_name genefamilies_norm
-            humann2_join_tables --input output/ --output {output.pathcov} --file_name pathcoverage
-            humann2_join_tables --input output/ --output {output.pathabun} --file_name pathabundance_norm
-            """
+            "humann2_join_tables --input output/ --output {output.genefam} --file_name genefamilies_norm; humann2_join_tables --input output/ --output {output.pathcov} --file_name pathcoverage; humann2_join_tables --input output/ --output {output.pathabun} --file_name pathabundance_norm"
