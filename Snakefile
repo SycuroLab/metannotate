@@ -30,7 +30,7 @@ rule humann2:
         pathcov = "output/{sample}_merged_pathcoverage.tsv",
         pathabun = "output/{sample}_merged_pathabundance.tsv"
     params:
-        db1 = "--bowtie2db output/databases/{sample}_database",
+        db1 = "--bowtie2db output/databases/{sample}_database --nproc 1",
         db2 = "output/database/{sample}_database"
     conda: "utils/envs/humann2_env.yaml"
     shell:
