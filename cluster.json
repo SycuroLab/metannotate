@@ -12,9 +12,9 @@
 
   "humann2" :
   {
-    "resources" : "\"rusage[mem=5000] span[hosts=1]\"",
-    "time" : "00:30",
-    "walllim" : "04:00",
-    "maxmem" : 20000
+    "resources" : "\"rusage[mem=10000] span[hosts=1]\"",
+    "time" : "03:00",
+    "walllim" : "06:00",
+    "maxmem" : 50000
   }
 }
