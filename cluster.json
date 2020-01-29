@@ -2,10 +2,10 @@
   "__default__" :
   {
     "n" : 28,
-    "resources" : "\"rusage[mem=2000] span[hosts=1]\"",
+    "resources" : "\"rusage[mem=1000] span[hosts=1]\"",
     "walllim" : "01:00",
-    "time" : "00:10",
-    "maxmem" : 10000,
+    "time" : "00:05",
+    "maxmem" : 5000,
     "output" : "logs/{rule}.{wildcards}.out",
     "error" : "logs/{rule}.{wildcards}.err"
   },
