@@ -38,7 +38,7 @@ rule humann2:
     shell:
             """
             cat {input.r1} {input.r2} > {output.m}
-            humann2 --input {output.m} --threads 16 --output output --nucleotide-database /home/aschick/refs/humann2/chocophlan --protein-database /home/aschick/refs/humann2/uniref --metaphlan-options="{params.db1}"
+            humann2 --input {output.m} --threads 16 --output output --nucleotide-database {config[nuc_db]} --protein-database {config[prot_db]} --metaphlan-options="{params.db1}"
             rm -rf {params.db2}
             """
 

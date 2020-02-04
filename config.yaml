@@ -13,4 +13,7 @@ for: "_bmtagged_1.fastq"
 # Path suffic for reverse reads
 rev: "_bmtagged_2.fastq"
 
-# Parameters for humann2
+# Location of nucleotide database
+nuc_db: "/home/aschick/refs/humann2/chocophlan"
+# Location os protein database
+prot_db: "home/aschick/refs/humann2/uniref"
