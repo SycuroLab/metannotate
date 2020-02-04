@@ -2,17 +2,25 @@
 
 Snakemake pipeline for functionally annotating microbial communities from metagenomic shotgun sequencing data using [HUMAnN2](http://huttenhower.sph.harvard.edu/humann2).
 
+HUMAnN2 uses a tiered approach - it first maps reads to clade-specific marker genes to identify species present in samples, then maps reads to functionally annotated pangenomes of identified species, and finally aligns unclassified reads to a protein database using a translated search (DIAMOND). 
+
 ## Overview
 
 Input: 
 
-* Paired-end fastq files from shotgun metagenome sequencing.
+* Paired-end fastq files from shotgun metagenome sequencing. 
 
 Output: 
 
-* Table of gene family abundance
-* Table of pathway abundance
-* Table of pathway converage
+This pipeline produces 7 files, which can be found in the `results` directory upon completion of all steps.
+
+* `merged_genefamilies.tsv`, a table of gene family abundances.
+* `merged_genefamilies_relab.tsv`, a table of gene family abundances, normalized using relative abundance.
+* `merged_genefamilies_cpm.tsv`, a table of gene family abundances, normalized using copies per million.
+* `merged_pathabundance.tsv`, a table of metabolic pathway abundances.
+* `merged_pathabundance_relab.tsv`, a table of metabolic pathway abundances, normalized by relative abundance.
+* `merged_pathabundance_cpm.tsv`, a table of metabolic pathway  abundances, normalized by copies per million.
+* `merged_pathcoverage.tsv`, a table of the presence (1) and absence (0) of pathways in a community, independent of their quantitative abundance.
 
 ## Pipeline summary
 
@@ -24,9 +32,9 @@ Insert DAG here if needed?
 
 1) Run HUMAnN2 on samples. 
 
-2) Normalize the abundance output files.
+2) Merge output files.
 
-3) Merge output files.
+3) Normalize output.
 
 ## Installation
 
@@ -50,6 +58,16 @@ See the snakemake installation [webpage](https://snakemake.readthedocs.io/en/sta
 
 All the parameters required to run this pipeline are specified in a config file, written in yaml. See/modify the provided example file with your custom parameters, called `config.yaml`. This is the only file that should be modified before running the pipeline. Make sure to follow the syntax in the example file in terms of when to use quotations around parameters.
 
+## Databases
+
+Two databases are needed to run this pipeline - a nucleotide database (ChocoPhlAn) and a protein database (UniRef). To download them, follow the instructions [here](https://bitbucket.org/biobakery/humann2/wiki/Home#markdown-header-standard-workflow). 
+
+Note: to run the `humann2_databases` command, you will first need to install humann2. To do this using conda:
+
+```
+conda install humann2
+```
+
 ## Data and list of files
 
 Specify the full path to the directory that contains your data files in the config file. You also need to have a list of sample names which contains the names of the samples to run the pipeline on, one sample per line. You can run this pipeline on any number or subset of your samples. Sample names should include everything up to the R1/R2 (or 1/2) part of the file names of the raw fastq files. Specify the path and name of your list in the config file.
@@ -57,10 +75,13 @@ Specify the full path to the directory that contains your data files in the conf
 ## Description of parameters
 | Parameter | Description | Example |
 | -------------- | --------------- | ------------ |
-| list_files | Full path and name of your sample list. | `"/home/aschick/project/list_files.txt"`
-| path | Location of input files. | `"/home/aschick/project/data/filtered/"`
+| list_files | Full path and name of your sample list. | `"/home/aschick/project/list_files.txt"` |
+| path | Location of input files. | `"/home/aschick/project/data/filtered/"` |
 | for | Suffix of forward reads. | `"_filtered_1.fastq"` |
 | rev | Suffix of reverse reads. | `"_filtered_2.fastq"` |
+| nuc_db | Location of nucleotide database. | `"home/aschick/refs/humann2/chocophlan"` |
+| prot_db | Location of protein database. | `"home/aschick/refs/humann2/uniref"` |
+
 
 ## Running the pipeline on Synergy
 
