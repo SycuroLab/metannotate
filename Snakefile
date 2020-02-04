@@ -16,9 +16,11 @@ SAMPLES = SAMPLES[0].tolist()
 
 rule all:
     input:
-        "results/merged_genefamilies_norm.tsv",
-        "results/merged_pathabundance_norm.tsv",
-        "results/merged_pathcoverage.tsv"
+        "results/merged_genefamilies_relab.tsv",
+        "results/merged_pathabundance_relab.tsv",
+        "results/merged_pathcoverage.tsv",
+        "results/merged_genefamilies_cpm.tsv",
+        "results/merged_pathabundance_cpm.tsv"
 
 rule humann2:
     input:
@@ -58,8 +60,10 @@ rule normalize:
         genefam = "results/merged_genefamilies.tsv",
         pathabun = "results/merged_pathabundance.tsv"
     output:
-        genefam = "results/merged_genefamilies_norm.tsv",
-        pathabun = "results/merged_pathabundance_norm.tsv"
+        gfrelab = "results/merged_genefamilies_relab.tsv",
+        parelab = "results/merged_pathabundance_relab.tsv",
+        gfcpm = "results/merged_genefamilies_cpm.tsv",
+        pacpm = "results/merged_pathabundance_cpm.tsv"
     conda: "utils/envs/humann2_env.yaml"
     shell:
-            "humann2_renorm_table --input {input.genefam} --output {output.genefam} --units relab; humann2_renorm_table --input {input.pathabun} --output {output.pathabun} --units relab"
+            "humann2_renorm_table --input {input.genefam} --output {output.gfrelab} --units relab; humann2_renorm_table --input {input.pathabun} --output {output.parelab} --units relab; humann2_renorm_table --input {input.genefam} --output {output.gfcpm}"
