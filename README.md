@@ -70,7 +70,7 @@ conda install humann2
 
 ## Data and list of files
 
-Specify the full path to the directory that contains your data files in the config file. You also need to have a list of sample names which contains the names of the samples to run the pipeline on, one sample per line. You can run this pipeline on any number or subset of your samples. Sample names should include everything up to the R1/R2 (or 1/2) part of the file names of the raw fastq files. Specify the path and name of your list in the config file.
+Specify the full path to the directory that contains your data files in the config file. You also need to have a list of sample names which contains the names of the samples to run the pipeline on, one sample per line. You can run this pipeline on any number or subset of your samples. Sample names should include everything up to the suffix of the file names of the fastq files. Specify the path and name of your list in the config file.
 
 ## Description of parameters
 | Parameter | Description | Example |
@@ -96,7 +96,7 @@ The above command submits jobs to Synergy, one for each sample and step of the Q
 
 ## Results and log files
 
-Snakemake will create a directory for the results of the pipeline as well as a directory for log files. Log files of each step of the pipeline will be written to the `logs` directory.
+Snakemake will create a directory for the results of the pipeline as well as a directory for log files. Log files of each step of the pipeline will be written to the `logs` directory. Intermediate output files can be found in the `output` directory. 
 
 
 
