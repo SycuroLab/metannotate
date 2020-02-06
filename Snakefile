@@ -40,11 +40,12 @@ rule humann2:
         pathabun = "output/{sample}_pathabundance.tsv"
     params:
         db1 = "--bowtie2db output/databases/{sample}_database",
-        db2 = "output/database/{sample}_database"
+        db2 = "output/database/{sample}_database",
+        s = "{sample}"
     conda: "utils/envs/humann2_env.yaml"
     shell:
             """
-            humann2 --input {input} --threads 16 --output output --nucleotide-database {config[nuc_db]} --protein-database {config[prot_db]} --metaphlan-options="{params.db1}"
+            humann2 --input {input} --threads 16 --output output --output-basename {params.s} --nucleotide-database {config[nuc_db]} --protein-database {config[prot_db]} --metaphlan-options="{params.db1}"
             rm -rf {params.db2}
             """
 
