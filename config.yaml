@@ -22,4 +22,4 @@ suff: "_bmt_merged_ELC_trimmed_filtered.fastq"
 # Location of nucleotide database
 nuc_db: "/home/aschick/refs/humann2/chocophlan"
 # Location os protein database
-prot_db: "home/aschick/refs/humann2/uniref"
+prot_db: "/home/aschick/refs/humann2/uniref"
