@@ -22,12 +22,19 @@ rule all:
         "results/merged_genefamilies_cpm.tsv",
         "results/merged_pathabundance_cpm.tsv"
 
-rule humann2:
+rule merge_reads:
     input:
         r1 = config["path"]+"{sample}"+config["for"],
         r2 = config["path"]+"{sample}"+config["rev"]
     output:
-        m = "data/merged/{sample}.fastq",
+        "data/merged/{sample}.fastq"
+    shell:
+            "cat {input.r1} {input.r2} > {output.m}"
+
+rule humann2:
+    input:
+        "data/merged/{sample}.fastq" if config["paired"] else config["path"]+"{sample}"+config["suff"]
+    output:
         genefam = "output/{sample}_genefamilies.tsv",
         pathcov = "output/{sample}_pathcoverage.tsv",
         pathabun = "output/{sample}_pathabundance.tsv"
@@ -37,12 +44,11 @@ rule humann2:
     conda: "utils/envs/humann2_env.yaml"
     shell:
             """
-            cat {input.r1} {input.r2} > {output.m}
-            humann2 --input {output.m} --threads 16 --output output --nucleotide-database {config[nuc_db]} --protein-database {config[prot_db]} --metaphlan-options="{params.db1}"
+            humann2 --input {input} --threads 16 --output output --nucleotide-database {config[nuc_db]} --protein-database {config[prot_db]} --metaphlan-options="{params.db1}"
             rm -rf {params.db2}
             """
 
-rule merge:
+rule merge_output:
     input:
         genefam = expand("output/{sample}_genefamilies.tsv", sample=SAMPLES),
         pathcov = expand("output/{sample}_pathcoverage.tsv", sample=SAMPLES),

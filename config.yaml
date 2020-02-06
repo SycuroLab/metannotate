@@ -8,10 +8,16 @@ list_files: "/home/aschick/projects/arrieta/list_files_test.txt"
 # Path to sequences
 path: "/home/aschick/projects/arrieta/metqc/data/bmtagger/"
 
-# Path suffix for forward reads
+# Are reads paired?
+paired: TRUE
+
+# If paired-end reads, suffix for forward reads
 for: "_bmtagged_1.fastq"
-# Path suffic for reverse reads
+# If paired-end reads, suffix for reverse reads
 rev: "_bmtagged_2.fastq"
+
+# If unpaired reads, suffix for reads
+suff: "_bmt_merged_ELC_trimmed_filtered.fastq"
 
 # Location of nucleotide database
 nuc_db: "/home/aschick/refs/humann2/chocophlan"

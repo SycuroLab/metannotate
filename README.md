@@ -8,7 +8,7 @@ HUMAnN2 uses a tiered approach - it first maps reads to clade-specific marker ge
 
 Input: 
 
-* Paired-end fastq files from shotgun metagenome sequencing. 
+* Cleaned and filtered reads from shotgun metagenome sequencing. Can be paired or unpaired.
 
 Output: 
 
@@ -29,6 +29,8 @@ Insert DAG here if needed?
 % ![Rulegraph](./metaphlan_files/rulegraph.png)
 
 ### Steps
+
+0) If reads are paired, merge forward and reverse reads.
 
 1) Run HUMAnN2 on samples. 
 
@@ -77,11 +79,12 @@ Specify the full path to the directory that contains your data files in the conf
 | -------------- | --------------- | ------------ |
 | list_files | Full path and name of your sample list. | `"/home/aschick/project/list_files.txt"` |
 | path | Location of input files. | `"/home/aschick/project/data/filtered/"` |
-| for | Suffix of forward reads. | `"_filtered_1.fastq"` |
-| rev | Suffix of reverse reads. | `"_filtered_2.fastq"` |
+| paired | Are the input reads paired? | `TRUE` |
+| for | If paired, suffix of forward reads. | `"_filtered_1.fastq"` |
+| rev | If paired, suffix of reverse reads. | `"_filtered_2.fastq"` |
+| suff | If unpaired, suffix of reads. | `"_bmt_merged_ELC_trimmed_filtered.fastq"`
 | nuc_db | Location of nucleotide database. | `"home/aschick/refs/humann2/chocophlan"` |
 | prot_db | Location of protein database. | `"home/aschick/refs/humann2/uniref"` |
-
 
 ## Running the pipeline on Synergy
 
