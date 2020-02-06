@@ -43,7 +43,7 @@ Insert DAG here if needed?
 To use this pipeline, navigate to your project directory and clone this repository into that directory using the following command:
 
 ```
-git clone https://github.com/alanaschick/metannotate.git metannotate
+git clone https://github.com/SycuroLab/metannotate.git metannotate
 ```
 
 Note: you need to have **conda** and **snakemake** installed in order to run this. To install conda, see the instructions [here](https://github.com/ucvm/synergy/wiki). 
