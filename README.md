@@ -83,8 +83,8 @@ Specify the full path to the directory that contains your data files in the conf
 | for | If paired, suffix of forward reads. | `"_filtered_1.fastq"` |
 | rev | If paired, suffix of reverse reads. | `"_filtered_2.fastq"` |
 | suff | If unpaired, suffix of reads. | `"_bmt_merged_ELC_trimmed_filtered.fastq"`
-| nuc_db | Location of nucleotide database. | `"home/aschick/refs/humann2/chocophlan"` |
-| prot_db | Location of protein database. | `"home/aschick/refs/humann2/uniref"` |
+| nuc_db | Location of nucleotide database. | `"/home/aschick/refs/humann2/chocophlan"` |
+| prot_db | Location of protein database. | `"/home/aschick/refs/humann2/uniref"` |
 
 ## Running the pipeline on Synergy
 
