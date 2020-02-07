@@ -73,4 +73,4 @@ rule normalize:
         pacpm = "results/merged_pathabundance_cpm.tsv"
     conda: "utils/envs/humann2_env.yaml"
     shell:
-            "humann2_renorm_table --input {input.genefam} --output {output.gfrelab} --units relab; humann2_renorm_table --input {input.pathabun} --output {output.parelab} --units relab; humann2_renorm_table --input {input.genefam} --output {output.gfcpm}"
+            "humann2_renorm_table --input {input.genefam} --output {output.gfrelab} --units relab; humann2_renorm_table --input {input.pathabun} --output {output.parelab} --units relab; humann2_renorm_table --input {input.genefam} --output {output.gfcpm}; humann2_renorm_table --input {input.pathabun} --output {output.pacpm}"
