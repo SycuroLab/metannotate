@@ -3,10 +3,11 @@
 # **************************************
 
 # List of files
-list_files: "/home/aschick/projects/arrieta/list_files_test.txt"
+list_files: "/export/home/hramay/projects/Arrieta/PC1000/antibiotic_babies/analysis/metqc/list_files.txt"
 
 # Path to sequences
-path: "/home/aschick/projects/arrieta/metqc/data/bmtagger/"
+path: "/export/home/hramay/projects/Arrieta/PC1000/antibiotic_babies/analysis/metqc/output/bmtagger/"
+metaphlan_results_path: "/export/home/hramay/projects/Arrieta/PC1000/antibiotic_babies/analysis/metaphlan/output/metaphlan/{sample}_profile.txt"
 
 # Are reads paired?
 paired: TRUE
@@ -20,6 +21,9 @@ rev: "_bmtagged_2.fastq"
 suff: "_bmt_merged_ELC_trimmed_filtered.fastq"
 
 # Location of nucleotide database
-nuc_db: "/home/aschick/refs/humann2/chocophlan"
+#nuc_db: "/gpfs/home/hramay/projects/databases/humann_dbs/chocophlan"
+nuc_db: "/gpfs/home/hramay/projects/databases/humann_dbs/chocophlan"
+
 # Location os protein database
-prot_db: "/home/aschick/refs/humann2/uniref"
+#prot_db: "/gpfs/home/hramay/projects/databases/humann_dbs/uniref"
+prot_db: "/gpfs/home/hramay/projects/databases/humann_dbs/uniref"
