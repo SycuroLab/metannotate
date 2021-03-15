@@ -1,8 +1,8 @@
 # metannotate
 
-Snakemake pipeline for functionally annotating microbial communities from metagenomic shotgun sequencing data using [HUMAnN2](http://huttenhower.sph.harvard.edu/humann2).
+Snakemake pipeline for functionally annotating microbial communities from metagenomic shotgun sequencing data using [HUMAnN3](http://huttenhower.sph.harvard.edu/humann3).
 
-HUMAnN2 uses a tiered approach - it first maps reads to clade-specific marker genes to identify species present in samples, then maps reads to functionally annotated pangenomes of identified species, and finally aligns unclassified reads to a protein database using a translated search (DIAMOND). 
+HUMAnN3 uses a tiered approach - it first maps reads to clade-specific marker genes to identify species present in samples, then maps reads to functionally annotated pangenomes of identified species, and finally aligns unclassified reads to a protein database using a translated search (DIAMOND). 
 
 ## Overview
 
@@ -62,12 +62,12 @@ All the parameters required to run this pipeline are specified in a config file,
 
 ## Databases
 
-Two databases are needed to run this pipeline - a nucleotide database (ChocoPhlAn) and a protein database (UniRef). To download them, follow the instructions [here](https://bitbucket.org/biobakery/humann2/wiki/Home#markdown-header-standard-workflow). 
+Two databases are needed to run this pipeline - a nucleotide database (ChocoPhlAn) and a protein database (UniRef). To download them, follow the instructions [here](https://huttenhower.sph.harvard.edu/humann/). 
 
-Note: to run the `humann2_databases` command, you will first need to install humann2. To do this using conda:
+Note: to run the `humann2_databases` command, you will first need to install humann3. To do this using conda:
 
 ```
-conda install humann2
+conda install humann3
 ```
 
 ## Data and list of files
@@ -77,14 +77,15 @@ Specify the full path to the directory that contains your data files in the conf
 ## Description of parameters
 | Parameter | Description | Example |
 | -------------- | --------------- | ------------ |
-| list_files | Full path and name of your sample list. | `"/home/aschick/project/list_files.txt"` |
-| path | Location of input files. | `"/home/aschick/project/data/filtered/"` |
+| list_files | Full path and name of your sample list. | `"/export/home/hramay/projects/Arrieta/PC1000/antibiotic_babies/analysis/metqc/list_files.txt"` |
+| path | Location of input files. | `"/export/home/hramay/projects/Arrieta/PC1000/antibiotic_babies/analysis/metqc/output/bmtagger/"` |
+| metaphlan_results_path | Location of processed metaphlan files | `"/export/home/hramay/projects/Arrieta/PC1000/antibiotic_babies/analysis/metaphlan/output/metaphlan/"` |
 | paired | Are the input reads paired? | `TRUE` |
 | for | If paired, suffix of forward reads. | `"_filtered_1.fastq"` |
 | rev | If paired, suffix of reverse reads. | `"_filtered_2.fastq"` |
 | suff | If unpaired, suffix of reads. | `"_bmt_merged_ELC_trimmed_filtered.fastq"`
-| nuc_db | Location of nucleotide database. | `"/home/aschick/refs/humann2/chocophlan"` |
-| prot_db | Location of protein database. | `"/home/aschick/refs/humann2/uniref"` |
+| nuc_db | Location of nucleotide database. | `"/bulk/IMCbinf_bulk/hramay/projects/databases/humann_dbs/chocophlan"` |
+| prot_db | Location of protein database. | `"/bulk/IMCbinf_bulk/hramay/projects/databases/humann_dbs/uniref"` |
 
 ## Running the pipeline on Synergy
 
