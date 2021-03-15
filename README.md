@@ -24,9 +24,9 @@ This pipeline produces 7 files, which can be found in the `results` directory up
 
 ## Pipeline summary
 
-Insert DAG here if needed?
+<!---Insert DAG here if needed? -->
 
-% ![Rulegraph](./metaphlan_files/rulegraph.png)
+<!--- % ![Rulegraph](./metaphlan_files/rulegraph.png) -->
 
 ### Steps
 
