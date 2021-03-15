@@ -64,11 +64,6 @@ All the parameters required to run this pipeline are specified in a config file,
 
 Two databases are needed to run this pipeline - a nucleotide database (ChocoPhlAn) and a protein database (UniRef). To download them, follow the instructions [here](https://huttenhower.sph.harvard.edu/humann/). 
 
-Note: to run the `humann2_databases` command, you will first need to install humann3. To do this using conda:
-
-```
-conda install humann3
-```
 
 ## Data and list of files
 
