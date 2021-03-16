@@ -21,9 +21,8 @@ rev: "_bmtagged_2.fastq"
 suff: "_bmt_merged_ELC_trimmed_filtered.fastq"
 
 # Location of nucleotide database
-#nuc_db: "/gpfs/home/hramay/projects/databases/humann_dbs/chocophlan"
-nuc_db: "/gpfs/home/hramay/projects/databases/humann_dbs/chocophlan"
+nuc_db: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs/chocophlan"
 
 # Location os protein database
-#prot_db: "/gpfs/home/hramay/projects/databases/humann_dbs/uniref"
-prot_db: "/gpfs/home/hramay/projects/databases/humann_dbs/uniref"
+prot_db: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs/uniref"
+
