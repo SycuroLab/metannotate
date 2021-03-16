@@ -1,0 +1,20 @@
+{
+  "__default__" :
+  {
+    "n" : 28,
+    "resources" : "\"rusage[mem=1000] span[hosts=1]\"",
+    "walllim" : "01:00",
+    "time" : "00:05",
+    "maxmem" : 5000,
+    "output" : "logs/{rule}.{wildcards}.out",
+    "error" : "logs/{rule}.{wildcards}.err"
+  },
+
+  "humann2" :
+  {
+    "resources" : "\"rusage[mem=10000] span[hosts=1]\"",
+    "time" : "03:00",
+    "walllim" : "06:00",
+    "maxmem" : 50000
+  }
+}

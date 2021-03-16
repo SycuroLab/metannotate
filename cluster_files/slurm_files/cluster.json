@@ -1,0 +1,21 @@
+{
+  "__default__" :
+  {
+    "name": "metaphlan.{rule}.{wildcards}",
+    "partition": "cpu2019",
+    "nodes": 1,
+    "ntasks": 1,
+    "cpus-per-task": 8,
+    "time" : "00:20:00",
+    "mem" : 38G,
+    "output" : "logs/{rule}.{wildcards}.out",
+    "error" : "logs/{rule}.{wildcards}.err"
+  },
+
+  "humann2" :
+  {
+    "time" : "00:20:00",
+    "mem" : 38G,
+  }
+}
+
