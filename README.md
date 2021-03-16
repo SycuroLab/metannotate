@@ -60,10 +60,28 @@ See the snakemake installation [webpage](https://snakemake.readthedocs.io/en/sta
 
 All the parameters required to run this pipeline are specified in a config file, written in yaml. See/modify the provided example file with your custom parameters, called `config.yaml`. This is the only file that should be modified before running the pipeline. Make sure to follow the syntax in the example file in terms of when to use quotations around parameters.
 
-## Databases
+## HUMAnN3 Databases
 
-Two databases are needed to run this pipeline - a nucleotide database (ChocoPhlAn) and a protein database (UniRef). To download them, follow the instructions [here](https://huttenhower.sph.harvard.edu/humann/). 
+Two databases are needed to run this pipeline - a nucleotide database (ChocoPhlAn) and a protein database (UniRef).
 
+The HUMAnN3 Databases were downloaded and installed previously for ease of use.
+
+Location: 
+`arc.ucalgary.ca`
+
+Directory Paths:
+
+The nuclotide database path:
+nuc_db `/bulk/IMCshared_bulk/shared/dbs/humann_dbs/chocophlan`
+
+The protein database path:
+prot_db `/bulk/IMCshared_bulk/shared/dbs/humann_dbs/uniref`
+
+If there are newer versions of the databases that you want to use for your project you can download the newer versions;
+
+To download them, follow the instructions [here](https://huttenhower.sph.harvard.edu/humann/). 
+
+Place the paths of each database in its corresponding parameter nuc_db for the nucleotide database and prot_db for the protein database in the `config.yaml` file.
 
 ## Data and list of files
 
