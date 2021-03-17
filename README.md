@@ -60,10 +60,28 @@ See the snakemake installation [webpage](https://snakemake.readthedocs.io/en/sta
 
 All the parameters required to run this pipeline are specified in a config file, written in yaml. See/modify the provided example file with your custom parameters, called `config.yaml`. This is the only file that should be modified before running the pipeline. Make sure to follow the syntax in the example file in terms of when to use quotations around parameters.
 
-## Databases
+## HUMAnN3 Databases
 
-Two databases are needed to run this pipeline - a nucleotide database (ChocoPhlAn) and a protein database (UniRef). To download them, follow the instructions [here](https://huttenhower.sph.harvard.edu/humann/). 
+Two databases are needed to run this pipeline - a nucleotide database (ChocoPhlAn) and a protein database (UniRef).
 
+The HUMAnN3 Databases were downloaded and installed previously for ease of use.
+
+Location: 
+`arc.ucalgary.ca`
+
+Directory Paths:
+
+The nuclotide database path:
+nuc_db `/bulk/IMCshared_bulk/shared/dbs/humann_dbs/chocophlan`
+
+The protein database path:
+prot_db `/bulk/IMCshared_bulk/shared/dbs/humann_dbs/uniref`
+
+If there are newer versions of the databases that you want to use for your project you can download the newer versions;
+
+To download them, follow the instructions [here](https://huttenhower.sph.harvard.edu/humann/). 
+
+Place the paths of each database in its corresponding parameter nuc_db for the nucleotide database and prot_db for the protein database in the `config.yaml` file.
 
 ## Data and list of files
 
@@ -82,7 +100,28 @@ Specify the full path to the directory that contains your data files in the conf
 | nuc_db | Location of nucleotide database. | `"/bulk/IMCbinf_bulk/hramay/projects/databases/humann_dbs/chocophlan"` |
 | prot_db | Location of protein database. | `"/bulk/IMCbinf_bulk/hramay/projects/databases/humann_dbs/uniref"` |
 
-## Running the pipeline on Synergy
+## Running the pipeline on ARC (SLURM cluster)
+
+Test the pipeline by running `snakemake -np`. This command prints out the commands to be run without actually running them. 
+
+To run the pipeline on the ARC compute cluster, enter the following command from the project directory:
+
+```
+sbatch < metannotate_sbatch.sh
+```
+
+The above command submits jobs to ARC, one for each sample and step of the metannotate pipeline.
+
+Note: the file `cluster.json` contains the parameters for the SLURM job submission system that ARC uses. In most cases, this file should not be modified. Use the `cluster.json` file in the `cluster_files/slurm_files/` folder. 
+
+The ARC Cluster Guide can be found here:
+https://rcs.ucalgary.ca/index.php/ARC_Cluster_Guide
+
+The General Guidelines and Policies can be found here:
+https://rcs.ucalgary.ca/index.php/General_Cluster_Guidelines_and_Policies
+
+
+## Running the pipeline on Synergy (LSF cluster)
 
 Test the pipeline by running `snakemake -np`. This command prints out the commands to be run without actually running them. 
 
@@ -91,7 +130,7 @@ To run the pipeline on the Synergy compute cluster, enter the following command 
 ```
 snakemake --cluster-config cluster.json --cluster 'bsub -n {cluster.n} -R {cluster.resources} -W {cluster.walllim} -We {cluster.time} -M {cluster.maxmem} -oo {cluster.output} -e {cluster.error}' --jobs 500 --use-conda
 ```
-The above command submits jobs to Synergy, one for each sample and step of the QC pipeline. Note: the file `cluster.json` contains the parameters for the LSF job submission system that Synergy uses. In most cases, this file should not be modified.
+The above command submits jobs to Synergy, one for each sample and step of the metaphlan pipeline. Note: the file `cluster.json` in the `cluster_files/lsf_files/` folder contains the parameters for the LSF job submission system that Synergy uses. In most cases, this file should not be modified.
 
 ## Results and log files
 
