@@ -2,7 +2,7 @@
   "__default__" :
   {
     "name": "metannotate.{rule}.{wildcards}",
-    "partition": "cpu2019",
+    "partition": "synergy",
     "nodes": 1,
     "ntasks": 1,
     "cpus-per-task": 8,
