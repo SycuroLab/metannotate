@@ -34,9 +34,9 @@ prot_db: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/uniref"
 
 # Location of maping files
 
-uniref90_name: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/utillity_mapping/map_uniref90_name.txt.bz2"
-eggnog_uniref90: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/utillity_mapping/map_eggnog_uniref90.txt.gz"  
-ko_uniref90: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/utillity_mapping/map_ko_uniref90.txt.gz"        
-eggnog_name: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/utillity_mapping/map_eggnog_name.txt.gz"       
-ko_name: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/utillity_mapping/map_ko_name.txt.gz"      
-uniref_name: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/utillity_mapping/map_uniref90_name.txt.bz2"
+uniref90_name: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/utility_mapping/map_uniref90_name.txt.bz2"
+eggnog_uniref90: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/utility_mapping/map_eggnog_uniref90.txt.gz"  
+ko_uniref90: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/utility_mapping/map_ko_uniref90.txt.gz"        
+eggnog_name: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/utility_mapping/map_eggnog_name.txt.gz"       
+ko_name: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/utility_mapping/map_ko_name.txt.gz"      
+uniref_name: "/bulk/IMCshared_bulk/shared/dbs/humann_dbs_3.1/utility_mapping/map_uniref90_name.txt.bz2"
