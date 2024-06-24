@@ -93,6 +93,7 @@ Specify the full path to the directory that contains your data files in the conf
 | list_files | Full path and name of your sample list. | `"/export/home/hramay/projects/Arrieta/PC1000/antibiotic_babies/analysis/metqc/list_files.txt"` |
 | path | Location of input files. | `"/export/home/hramay/projects/Arrieta/PC1000/antibiotic_babies/analysis/metqc/output/bmtagger/"` |
 | metaphlan_results_path | Location of processed metaphlan files | `"/export/home/hramay/projects/Arrieta/PC1000/antibiotic_babies/analysis/metaphlan/output/metaphlan/"` |
+| num_threads | Number of threads to use humann3. | `8` |
 | paired | Are the input reads paired? | `TRUE` |
 | for | If paired, suffix of forward reads. | `"_filtered_1.fastq"` |
 | rev | If paired, suffix of reverse reads. | `"_filtered_2.fastq"` |
