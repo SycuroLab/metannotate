@@ -2,20 +2,27 @@
   "__default__" :
   {
     "name": "metannotate.{rule}.{wildcards}",
-    "partition": "synergy",
+    "partition": "synergy,cpu2019,cpu2021,cpu2022,cpu2023",
     "nodes": 1,
     "ntasks": 1,
-    "cpus-per-task": 8,
-    "time" : "2-00:00:00",
+    "cpus-per-task": 1,
+    "time" : "7-00:00:00",
     "mem" : 38G,
     "output" : "logs/{rule}.{wildcards}.out",
     "error" : "logs/{rule}.{wildcards}.err"
   },
 
-  "humann2" :
+  "humann3" :
   {
-    "time" : "2-00:00:00",
+    "name": "metannotate.{rule}.{wildcards}",
+    "partition": "synergy,cpu2019,cpu2021,cpu2022,cpu2023",
+    "nodes": 1,
+    "ntasks": 1,
+    "cpus-per-task": 8,
+    "time" : "7-00:00:00",
     "mem" : 38G,
+    "output" : "logs/{rule}.{wildcards}.out",
+    "error" : "logs/{rule}.{wildcards}.err"
   }
 }
 

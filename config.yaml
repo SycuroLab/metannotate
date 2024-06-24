@@ -3,20 +3,23 @@
 # **************************************
 
 # List of files
-list_files: "/bulk/IMCshared_bulk/sycuro_shared_projects/Davide_TS/HUMAnN/metannotate_20210915/utils/list_files.txt"
+#list_files: "/bulk/IMCshared_bulk/sycuro_shared_projects/Davide_TS/HUMAnN/metannotate_20210915/utils/list_files.txt"
+list_files: "/bulk/IMCshared_bulk/kevin/IMC_shotgun_analysis/Project_10041/10041_Steven_Yip_and_Pinaki_Bose/sample_names_list_10041-YB_no_controls.txt"
 
 # Path to sequences
-path: "/bulk/IMCshared_bulk/sycuro_shared_projects/Davide_TS/clean_reads/bmtagger/"
+path: "/bulk/IMCshared_bulk/kevin/IMC_shotgun_analysis/Project_10041/10041_Steven_Yip_and_Pinaki_Bose/analysis/cleaned_reads_metqc/bmtagger/"
 
 # Path to already run metahphlan output files
-metaphlan_results_path: "/bulk/IMCshared_bulk/sycuro_shared_projects/Davide_TS/metaphlan/{sample}_profile.txt"
-
+metaphlan_results_path: "/bulk/IMCshared_bulk/kevin/IMC_shotgun_analysis/Project_10041/10041_Steven_Yip_and_Pinaki_Bose/analysis/metaphlan4_gtdb/metaphlan/{sample}_profile.txt"
 
 # output directory
-output_dir: "output"
+output_dir: "/bulk/IMCshared_bulk/kevin/IMC_shotgun_analysis/Project_10041/10041_Steven_Yip_and_Pinaki_Bose/analysis/metannotate"
 
 # Are reads paired?
 paired: TRUE
+
+# Number of threads to use humann3.
+num_threads: 8
 
 # If paired-end reads, suffix for forward reads
 for: "_bmtagged_1.fastq"
