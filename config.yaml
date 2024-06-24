@@ -18,7 +18,7 @@ output_dir: "/bulk/IMCshared_bulk/kevin/IMC_shotgun_analysis/Project_10041/10041
 # Are reads paired?
 paired: TRUE
 
-# Number of threads to use humann3.
+# Number of threads to use for humann3.
 num_threads: 8
 
 # If paired-end reads, suffix for forward reads
