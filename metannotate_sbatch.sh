@@ -1,9 +1,6 @@
 #!/bin/bash
 
-<<<<<<< HEAD
-=======
 #SBATCH --job-name="metannotate_sbatch"
->>>>>>> 8490aeba9e2abeb5f2b6833b32ec1d57b903e090
 #SBATCH --partition=synergy,cpu2019,cpu2021,cpu2022,cpu2023
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -16,9 +13,6 @@
 time_in_seconds=$(date +%s)
 log_dir="$(pwd)"
 log_file="logs/metannotate-analysis_${time_in_seconds}.log.txt"
-<<<<<<< HEAD
-num_jobs=70
-=======
 
 # The number of jobs for the snakemake command.
 num_jobs=60
@@ -28,16 +22,6 @@ latency_wait=15
 
 # The number of times to restart a job if it fails.
 restart_times=10
->>>>>>> 8490aeba9e2abeb5f2b6833b32ec1d57b903e090
-
-# Load the ~/.bashrc file as source.
-source ~/.bashrc
-
-# Activate the snakemake conda environment.
-conda activate snakemake_env
-
-# Unlock snakemake folder as a fail safe.
-snakemake --unlock
 
 echo "started at: `date`"
 
